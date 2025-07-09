@@ -1,10 +1,3 @@
-/* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
-
 /* Tema padrão (modo escuro) */
 :root {
   --highlight-color: rgba(255, 255, 255, 0.2);
@@ -20,6 +13,26 @@
   background-size: cover;
 }
 
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Elemento <a>  */
+a,
+button {
+  cursor: pointer;
+}
+
+/* Corpo do site */
+body {
+  padding-inline: 16px;
+}
+
 /* Tema claro */
 .light {
   --highlight-color: rgba(0, 0, 0, 0.1);
@@ -33,17 +46,6 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-/* Elemento <a>  */
-a {
-  cursor: pointer;
-}
-
-/* Corpo do site */
-body * {
-  color: var(--text-color);
-  font-family: "Inter", sans-serif;
 }
 
 /* Container principal */
@@ -90,34 +92,9 @@ body * {
   border-radius: 50%;
 }
 
-/* Botão de troca de tema */
-#switch {
-  margin: 4px auto;
-  position: relative;
-  width: 64px;
-}
+/* switch */
 
-#switch button {
-  background: white var(--switch-bg-url) no-repeat center;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 32px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  z-index: 1;
-}
-
-/* Botão no modo claro */
-.light #switch button {
-  left: 0;
-  right: initial;
-}
-
-#switch span {
+button#switch {
   backdrop-filter: blur(4px);
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
@@ -125,7 +102,30 @@ body * {
   display: block;
   height: 24px;
   -webkit-backdrop-filter: blur(4px);
-  width: 64px;
+  width: 56px;
+  margin: 16px auto 4px;
+  position: relative;
+}
+
+button#switch > span {
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 32px;
+  position: absolute;
+  left: calc(100% - 32px);
+  top: 50%;
+  transform: translate(1px, -50%);
+  transition: 0.2s ease-in-out;
+  width: 32px;
+  z-index: 1;
+}
+
+.light button#switch > span {
+  left: 0;
+  transform: translate(-1px, -50%);
+  transition: 0.2s ease-in-out;
 }
 
 /* Rodapé */
