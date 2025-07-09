@@ -22,6 +22,10 @@
   padding: 0px;
 }
 
+#conteiner img {
+  transition: ease-in-out 0.2s;
+}
+
 /* Elemento <a>  */
 a,
 button {
@@ -172,3 +176,5 @@ ul li a:hover {
   background: var(--surface-color-houver);
   border: 1.5px solid var(--text-color);
 }
+
+/* botao do portfolio */

@@ -17,3 +17,7 @@ function toggleMode() {
     img.setAttribute("alt", "homem de camisa preta sorrindo");
   }
 }
+
+function exibirAlerta() {
+  alert("Em fase de Construção!");
+}
