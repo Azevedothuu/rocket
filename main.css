@@ -1,61 +1,64 @@
+/* Reset básico */
 * {
+  box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
 }
 
+/* Tema padrão (modo escuro) */
 :root {
-  --text-color: white;
-  background-image: url(./assets/bg-desktop.jpg);
+  --highlight-color: rgba(255, 255, 255, 0.2);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
-
   --surface-color-houver: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(0255, 255, 255, 0.2);
   --switch-bg-url: url(assets/moon-stars.svg);
+  --text-color: white;
+
+  background-image: url(./assets/bg-desktop.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+/* Tema claro */
 .light {
-  --text-color: black;
-  background-image: url(./assets/bg-desktop-light.jpg);
+  --highlight-color: rgba(0, 0, 0, 0.1);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-houver: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(assets/sun.svg);
+  --text-color: black;
+
+  background-image: url(./assets/bg-desktop-light.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+/* Elemento <a>  */
 a {
   cursor: pointer;
 }
 
-html {
-  transition: ease-in-out 0.4s;
-}
-
-body {
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-/* no-repeat top center/cover tenho q arrumar */
-
+/* Corpo do site */
 body * {
-  font-family: "Inter", sans-serif;
   color: var(--text-color);
+  font-family: "Inter", sans-serif;
 }
 
+/* Container principal */
 #conteiner {
-  width: 100%;
   margin: 0px auto;
-  text-align: center;
   max-width: 588px;
+  text-align: center;
+  width: 100%;
 }
 
+/* Perfil */
 #profile img {
-  width: 180px;
-  padding: 24px;
   border-radius: 50%;
+  padding: 24px;
+  width: 180px;
 }
 
 #profile p {
@@ -63,100 +66,23 @@ body * {
   line-height: 24px;
   margin: 8px 8px;
 }
-/* botao*/
 
-#switch {
-  position: relative;
-  width: 64px;
-  margin: 4px auto;
-}
-
-#switch button {
-  width: 32px;
-  height: 32px;
-  background: white var(--switch-bg-url) no-repeat center;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-
-  position: absolute;
-  top: 50%;
-  right: 0;
-  z-index: 1;
-  transform: translateY(-50%);
-}
-
-.light #switch button {
-  right: initial;
-  left: 0;
-}
-
-#switch span {
-  display: block;
-  width: 64px;
-  height: 24px;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 9999px;
-}
-
-/* links */
-
-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 24px 0;
-}
-
-ul li a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 16px 24px;
-
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  border-radius: 8px;
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
-  text-decoration: none;
-  font-weight: 500;
-
-  transition: background 0.2s;
-}
-
-/* pseudo-selector */
-
-ul li a:hover {
-  background: var(--surface-color-houver);
-  border: 1.5px solid var(--text-color);
-}
-
-/* social links */
-
+/* Links sociais */
 #social-links {
   display: flex;
-  gap: 16px;
-  padding: 24px 0;
   font-size: 24px;
+  gap: 16px;
   justify-content: center;
+  padding: 24px 0;
 }
 
 #social-links a {
-  display: flex;
   align-items: center;
+  border-radius: 50%;
+  display: flex;
   justify-content: center;
   padding: 16px;
-
   transition: background 0.2s;
-  border-radius: 50%;
 }
 
 #social-links a:hover {
@@ -164,15 +90,85 @@ ul li a:hover {
   border-radius: 50%;
 }
 
-/* rodape */
+/* Botão de troca de tema */
+#switch {
+  margin: 4px auto;
+  position: relative;
+  width: 64px;
+}
 
+#switch button {
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 32px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  z-index: 1;
+}
+
+/* Botão no modo claro */
+.light #switch button {
+  left: 0;
+  right: initial;
+}
+
+#switch span {
+  backdrop-filter: blur(4px);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  display: block;
+  height: 24px;
+  -webkit-backdrop-filter: blur(4px);
+  width: 64px;
+}
+
+/* Rodapé */
 footer {
-  padding: 24px 0;
   font-size: 14px;
+  padding: 24px 0;
 }
 
 footer span {
   text-decoration: underline;
 }
 
-/* para outros dispositivos  */
+/* HTML raiz */
+html {
+  transition: ease-in-out 0.4s;
+}
+
+/* Lista de links */
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding: 24px 0;
+}
+
+ul li a {
+  align-items: center;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  padding: 16px 24px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+/* Hover nos links */
+ul li a:hover {
+  background: var(--surface-color-houver);
+  border: 1.5px solid var(--text-color);
+}
